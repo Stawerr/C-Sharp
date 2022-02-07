@@ -51,9 +51,12 @@ namespace _5412_Ficha1
 
         private void button1_Click(object sender, EventArgs e)
         {
-
             ScoreA.Text = (int.Parse(ScoreA.Text) + 1).ToString();
+        }
 
+        private void cliqueAqui(object sender, EventArgs e)
+        {
+            ScoreB.Text = (int.Parse(ScoreB.Text) + 1).ToString();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -64,24 +67,26 @@ namespace _5412_Ficha1
             }
 
         }
-
-        private void cliqueAqui(object sender, EventArgs e)
+        private void menosB_Click(object sender, EventArgs e)
         {
-            ScoreB.Text = (int.Parse(ScoreB.Text) + 1).ToString();
+            int texto = int.Parse(ScoreB.Text);
+            if (texto > 0)
+            {
+                ScoreB.Text = (texto - 1).ToString();
+            }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-
-        }
-            int min = 0;
+            int min = 43;
             int seg = 0;
-            private void timer1_Tick(object sender, EventArgs e)
+        private void inicio_Click(object sender, EventArgs e)
+        {
+            timer1.Enabled = true;
+            timer1.Start();
+            inicio.Visible = false;
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
                 { if (min < 90)
                 {
                     if (seg < 59)
@@ -99,23 +104,29 @@ namespace _5412_Ficha1
             {
                 parte.Text = "2ª parte";
             }
-        }
 
-            
-
-
-        private void menosB_Click(object sender, EventArgs e)
-        {
-            int texto = int.Parse(ScoreB.Text);
-            if (texto > 0)
+            if (min == 45 && seg == 00)
             {
-                ScoreB.Text = (texto - 1).ToString();
+                timer1.Stop();
+                inicio.Visible = true;
             }
-        }
+            if (min == 90 && seg == 00)
+            {
+                inicio.Visible = true;
+                maisA.Enabled = false;
+                maisB.Enabled = false;
+                menosA.Enabled = false;
+                menosB.Enabled = false;
+                equipaA.Enabled = false;
+                equipaB.Enabled = false;
+                DialogResult d;
+                d = MessageBox.Show("Welcome to C# Corner", "Learn C#", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (d == DialogResult.Yes)
+                {
+                    Close();
+                }
+            }
 
-        private void equipaA_Click(object sender, EventArgs e)
-        {
-           
         }
     }
 }

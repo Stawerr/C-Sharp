@@ -44,6 +44,7 @@ namespace _5412_Ficha1
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.parte = new System.Windows.Forms.Label();
+            this.inicio = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -111,7 +112,6 @@ namespace _5412_Ficha1
             this.equipaA.Size = new System.Drawing.Size(98, 29);
             this.equipaA.TabIndex = 8;
             this.equipaA.Text = "Benfica";
-            this.equipaA.Click += new System.EventHandler(this.equipaA_Click);
             // 
             // equipaB
             // 
@@ -167,7 +167,6 @@ namespace _5412_Ficha1
             // 
             // timer1
             // 
-            this.timer1.Enabled = true;
             this.timer1.Interval = 1;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
@@ -181,12 +180,24 @@ namespace _5412_Ficha1
             this.parte.TabIndex = 12;
             this.parte.Text = "1ª parte";
             // 
+            // inicio
+            // 
+            this.inicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 18.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inicio.Location = new System.Drawing.Point(251, 323);
+            this.inicio.Name = "inicio";
+            this.inicio.Size = new System.Drawing.Size(141, 40);
+            this.inicio.TabIndex = 13;
+            this.inicio.Text = "START";
+            this.inicio.UseVisualStyleBackColor = true;
+            this.inicio.Click += new System.EventHandler(this.inicio_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(669, 450);
+            this.Controls.Add(this.inicio);
             this.Controls.Add(this.parte);
             this.Controls.Add(this.ScoreB);
             this.Controls.Add(this.ScoreA);
@@ -223,6 +234,7 @@ namespace _5412_Ficha1
         private System.Windows.Forms.Label ScoreB;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label parte;
+        private System.Windows.Forms.Button inicio;
     }
 }
 
