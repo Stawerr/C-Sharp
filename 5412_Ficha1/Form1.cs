@@ -157,6 +157,7 @@ namespace _5412_Ficha1
 
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
+                openFileDialog.DefaultExt = "txt";
                 openFileDialog.InitialDirectory = "d:\\";
                 openFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
                 openFileDialog.FilterIndex = 2;
