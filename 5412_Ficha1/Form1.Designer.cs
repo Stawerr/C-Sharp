@@ -45,6 +45,8 @@ namespace _5412_Ficha1
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.parte = new System.Windows.Forms.Label();
             this.inicio = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -107,7 +109,7 @@ namespace _5412_Ficha1
             // 
             this.equipaA.AutoSize = true;
             this.equipaA.Font = new System.Drawing.Font("Microsoft Sans Serif", 18.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.equipaA.Location = new System.Drawing.Point(63, 263);
+            this.equipaA.Location = new System.Drawing.Point(58, 263);
             this.equipaA.Name = "equipaA";
             this.equipaA.Size = new System.Drawing.Size(98, 29);
             this.equipaA.TabIndex = 8;
@@ -183,13 +185,33 @@ namespace _5412_Ficha1
             // inicio
             // 
             this.inicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 18.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inicio.Location = new System.Drawing.Point(251, 323);
+            this.inicio.Location = new System.Drawing.Point(209, 322);
             this.inicio.Name = "inicio";
-            this.inicio.Size = new System.Drawing.Size(141, 40);
+            this.inicio.Size = new System.Drawing.Size(189, 73);
             this.inicio.TabIndex = 13;
-            this.inicio.Text = "START";
+            this.inicio.Text = "COMEÇAR O JOGO";
             this.inicio.UseVisualStyleBackColor = true;
             this.inicio.Click += new System.EventHandler(this.inicio_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(209, 415);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "Carregar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(306, 415);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 15;
+            this.button2.Text = "Gravar";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // Form1
             // 
@@ -197,6 +219,8 @@ namespace _5412_Ficha1
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(669, 450);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.inicio);
             this.Controls.Add(this.parte);
             this.Controls.Add(this.ScoreB);
@@ -235,6 +259,8 @@ namespace _5412_Ficha1
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label parte;
         private System.Windows.Forms.Button inicio;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
 

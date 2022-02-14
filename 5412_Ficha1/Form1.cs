@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+
 
 namespace _5412_Ficha1
 {
@@ -18,6 +20,12 @@ namespace _5412_Ficha1
 
             selecionaImagem(equipaA, pictureBox1);
             selecionaImagem(equipaB, pictureBox2);
+            
+                maisA.Enabled = false;
+                maisB.Enabled = false;
+                menosA.Enabled = false;
+                menosB.Enabled = false;
+           
 
         }
 
@@ -52,6 +60,7 @@ namespace _5412_Ficha1
         private void button1_Click(object sender, EventArgs e)
         {
             ScoreA.Text = (int.Parse(ScoreA.Text) + 1).ToString();
+           
         }
 
         private void cliqueAqui(object sender, EventArgs e)
@@ -83,7 +92,23 @@ namespace _5412_Ficha1
             timer1.Enabled = true;
             timer1.Start();
             inicio.Visible = false;
-
+            maisA.Enabled = true;
+            maisB.Enabled = true;
+            menosA.Enabled = true;
+            menosB.Enabled = true;
+            if (min==90 && seg == 0)
+            {
+                min = 0;
+                seg = 0;
+                maisA.Enabled = true;
+                maisB.Enabled = true;
+                menosA.Enabled = true;
+                menosB.Enabled = true;
+                equipaA.Enabled = true;
+                equipaB.Enabled = true;
+                ScoreA.Text = "0";
+                ScoreB.Text = "0";
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -103,6 +128,7 @@ namespace _5412_Ficha1
             if (min==45 && seg==0)
             {
                 parte.Text = "2ª parte";
+                inicio.Text = "Começar 2ª parte";
             }
 
             if (min == 45 && seg == 00)
@@ -119,8 +145,29 @@ namespace _5412_Ficha1
                 menosB.Enabled = false;
                 equipaA.Enabled = false;
                 equipaB.Enabled = false;
-                 
+                timer1.Stop();
             }
+        }
+        string texto;
+        string[] linha;
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if (File.Exists(@"d:\jogo.txt") == true)
+            {
+                texto = File.ReadAllText(@"d:\jogo.txt", Encoding.UTF8);
+                linha = texto.Split(';');
+                equipaA.Text = linha[0];
+                ScoreA.Text = linha[1];
+                equipaB.Text = linha[2];
+                ScoreB.Text = linha[3];
+                min = 0;
+                seg = 0;
+            }
+        }
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            texto = equipaA.Text + ";" + ScoreA.Text + ";" + equipaB.Text + ";" + ScoreB.Text;
+            File.WriteAllText(@"d:\jogo.txt", texto);
         }
     }
 }
