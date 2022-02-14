@@ -76,7 +76,7 @@ namespace _5412_Ficha1
             }
         }
 
-            int min = 43;
+            int min = 88;
             int seg = 0;
         private void inicio_Click(object sender, EventArgs e)
         {
@@ -119,14 +119,8 @@ namespace _5412_Ficha1
                 menosB.Enabled = false;
                 equipaA.Enabled = false;
                 equipaB.Enabled = false;
-                DialogResult d;
-                d = MessageBox.Show("Welcome to C# Corner", "Learn C#", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                if (d == DialogResult.Yes)
-                {
-                    Close();
-                }
+                 
             }
-
         }
     }
 }
