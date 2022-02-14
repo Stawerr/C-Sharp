@@ -85,7 +85,7 @@ namespace _5412_Ficha1
             }
         }
 
-            int min = 88;
+            int min = 0;
             int seg = 0;
         private void inicio_Click(object sender, EventArgs e)
         {
@@ -162,6 +162,8 @@ namespace _5412_Ficha1
                 ScoreB.Text = linha[3];
                 min = 0;
                 seg = 0;
+                selecionaImagem(equipaA, pictureBox1);
+                selecionaImagem(equipaB, pictureBox2);
             }
         }
         private void button2_Click_1(object sender, EventArgs e)

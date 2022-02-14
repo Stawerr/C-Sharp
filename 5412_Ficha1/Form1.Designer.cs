@@ -111,9 +111,9 @@ namespace _5412_Ficha1
             this.equipaA.Font = new System.Drawing.Font("Microsoft Sans Serif", 18.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.equipaA.Location = new System.Drawing.Point(58, 263);
             this.equipaA.Name = "equipaA";
-            this.equipaA.Size = new System.Drawing.Size(98, 29);
+            this.equipaA.Size = new System.Drawing.Size(104, 29);
             this.equipaA.TabIndex = 8;
-            this.equipaA.Text = "Benfica";
+            this.equipaA.Text = "Tondela";
             // 
             // equipaB
             // 
