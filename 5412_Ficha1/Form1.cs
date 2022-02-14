@@ -152,9 +152,33 @@ namespace _5412_Ficha1
         string[] linha;
         private void button1_Click_1(object sender, EventArgs e)
         {
-            if (File.Exists(@"d:\jogo.txt") == true)
+            string fileContent = string.Empty;
+            string filePath = string.Empty;
+
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                texto = File.ReadAllText(@"d:\jogo.txt", Encoding.UTF8);
+                openFileDialog.InitialDirectory = "d:\\";
+                openFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+                openFileDialog.FilterIndex = 2;
+                openFileDialog.RestoreDirectory = true;
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    //Get the path of specified file
+                    filePath = openFileDialog.FileName;
+
+                    //Read the contents of the file into a stream
+                    var fileStream = openFileDialog.OpenFile();
+
+                    using (StreamReader reader = new StreamReader(fileStream))
+                    {
+                        fileContent = reader.ReadToEnd();
+                    }
+                }
+            }
+
+            {
+                texto = File.ReadAllText(filePath, Encoding.UTF8);
                 linha = texto.Split(';');
                 equipaA.Text = linha[0];
                 ScoreA.Text = linha[1];
@@ -168,8 +192,18 @@ namespace _5412_Ficha1
         }
         private void button2_Click_1(object sender, EventArgs e)
         {
-            texto = equipaA.Text + ";" + ScoreA.Text + ";" + equipaB.Text + ";" + ScoreB.Text;
-            File.WriteAllText(@"d:\jogo.txt", texto);
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.DefaultExt = "txt";
+            saveFileDialog1.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+            saveFileDialog1.FilterIndex = 2;
+            saveFileDialog1.RestoreDirectory = true;
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                
+                texto = equipaA.Text + ";" + ScoreA.Text + ";" + equipaB.Text + ";" + ScoreB.Text;
+                File.WriteAllText(saveFileDialog1.FileName, texto);
+            }
+            
         }
     }
 }
